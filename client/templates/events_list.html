@@ -1,0 +1,197 @@
+<template name="days">
+  <br />
+  
+
+	<!-- <div><div><li> -->
+	<div class="days center-align">
+		<!-- <div class="container"> -->
+		    	
+					  
+			<div class="swiper-container center-align">
+			    <div class="swiper-wrapper center-align">
+				    	
+
+			    			
+				    	{{#each allEvents}}	
+
+
+					    		<div class="swiper-slide center-align">
+					    			
+					    			<div class="row">
+					    				<div class="col s12 m12 center-align">	
+							    			{{> oneEvent}}
+						    			</div>
+					    			</div>
+					    		
+					    		</div>
+					    	
+				    		
+				    	{{/each}}
+				    
+					    <!-- <div class="swiper-pagination"></div>
+					    
+					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-button-next"></div>
+					    
+					    <div class="swiper-scrollbar"></div> -->
+
+				</div>
+				
+			</div>
+
+		<!-- </div> -->	
+	</div>
+	
+	<br />
+	
+
+</template>
+
+<template name="oneEvent">
+	<div class="card sticky-action">
+	    <div class="card-image waves-effect waves-block waves-light">
+	      <img class="activator responsive-img" src="{{random}}">
+	    </div>
+
+	    <div class="card-content">
+	      <span class="card-title activator grey-text text-darken-4">{{summary}}<i class="material-icons right">more_vert</i></span>
+	      <p><a href="#">More</a></p>
+	    </div>
+	    
+	    <div class="card-reveal">
+	      <span class="card-title grey-text text-darken-4">{{summary}}<i class="material-icons right">close</i></span>
+	      <p>{{description}}</p>
+	    </div>
+
+	    <div class="card-action">
+          <a href="#">PAY</a>
+        </div>
+	  </div>
+
+
+
+	<!-- <li>
+  		<div class="collapsible-header {{#if isEventChosen}}chosen{{/if}} {{s}} {{#if isEventFull}}full{{/if}}"><i class="material-icons left">today</i>{{summary}} {{#if isEventFull}} &nbsp; <small>Event is full. Registration has been closed.</small>{{/if}} {{#if isAdmin}}<a> Registered: {{usersLength}} of {{eventLimit}}. &nbsp; Section:{{s}} </a>{{/if}}<span class="right">{{hourFormat start.dateTime}} - {{hourFormat end.dateTime}}</span></div>
+  		<div class="collapsible-body container">
+  			<br />
+  			{{description}}
+  			<br /><br />Event type: <strong>{{eventType}}</strong>
+  			<br />
+			{{#if hasUserDecided}}
+				{{#if isEventFull}}
+					<div class="valign-wrapper">
+		    			<a class="waves-effect btn valign disabled">Event full</a>
+					</div>
+				{{else}}
+					<div class="valign-wrapper">
+		    			<a id="register" class="waves-effect btn valign">{{#if isEventChosen}}Unregister{{else}}Register{{/if}}</a>
+					</div>
+				{{/if}}
+			{{/if}}
+  			{{#if isAdmin}}
+  				{{> adminEvent}}
+  			{{/if}}
+  		{{/if}}-->
+			
+			<!-- <br /> -->
+		<!-- </div> -->
+	<!-- </li> --> 
+</template>
+
+
+
+<template name="adminEvent">
+	<br />
+	
+    <ul class="collapsible z-depth-0"><li><div class="collapsible-header" id="loadUsers" ><h5>Registered Users</h5> </div>
+    	<div class="collapsible-body container">
+    	<table><tbody>
+		    {{#each registeredUsers}}
+		      {{> user_event}}
+		    {{/each}}
+		</tbody></table>
+		</div></li>
+	</ul>
+	<br />
+
+	<h5>Add user to the event</h5>
+	<form id="manually-add">
+		<input id="manually-add" type="text" name="text" placeholder="User's mail"/>
+	</form>
+  
+    <h5>Update registration limit</h5>
+	    <form id="limit">
+				<input id="limit" type="text" name="text" placeholder="Current limit: {{this.limit}}"/>
+		</form>
+		
+    <h5>Update event type</h5>
+    <h6>Current type: {{this.eventType}}</h6>
+    <a id="free" class="waves-effect waves-teal btn-flat">Free</a>
+    
+    <a id="payable" class="waves-effect waves-teal btn-flat">Payable</a>
+    
+    <a id="notLimited" class="waves-effect waves-teal btn-flat">Not Limited</a>
+		<br />
+		<br />
+		<h5>Update information</h5>
+		<!--<div class='input-field'>-->
+			<form id="summary">
+				<input id="summary" type="text" name="text" placeholder="Title of the event"  />
+			</form>
+			<form id="description">
+				<input id="description" type="text" name="text" placeholder="Description of the event"  />
+			</form>
+		<!--</div>-->
+		
+		<br />
+		<h5>Update date</h5>
+			<br />
+		<!--<div class='input-field'>-->
+			<h6>Start date</h6>
+			<form id="start-date">
+				<input id="start-date" type="datetime-local" name="text"  />
+				<input type="submit" style="visibility: hidden;"/>
+			</form>
+			
+			<h6>End date</h6>
+			<form id="end-date">
+				<input id="end-date" type="datetime-local" name="text">
+				<input type="submit" style="visibility: hidden;"/>
+			</form>
+		<!--</div>-->
+		<!--<input type="submit" value="Add Player">-->
+	<!--</form>-->
+	<a id="event-remove" class="waves-effect btn"><i class="material-icons left">not_interested</i>Remove event</a>
+	<br /><br />
+    
+
+		
+</template>
+
+
+
+<template name="afterDecision">
+  <div class="center-align flow-text">
+    <br />
+    <h5>Thanks a lot!</h5>
+    <p>
+      {{displayOutroText}}
+    </p>
+  </div>
+  
+  <div class="containter">
+    <h4>Your events:</h4>
+    <ul class="collapsible">
+    {{#with currentUser}}
+	    {{#each chosenEvents}}
+	      {{#if p start.dateTime }}
+		    	<center><h5 class="" id="{{_id}}">{{dayFormat start.dateTime}}</h5></center>
+		  	{{/if}}
+			
+			{{> oneEvent}}
+
+		{{/each}}
+	{{/with}}
+	</ul>
+  </div>
+</template>

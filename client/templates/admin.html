@@ -1,0 +1,63 @@
+<template name="adminSettings">
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title">Settings</span>
+
+			<h6>Intro text</h6>
+			<form id="intro">
+				<input id="intro" type="text" name="text" placeholder="Current intro text: {{displayIntroText}}"/>
+			</form>
+
+			<h6>Outro text</h6>
+			<form id="outro">
+				<input id="outro" type="text" name="text" placeholder="Current outro text: {{displayOutroText}}"/>
+			</form>
+			
+			<h6>Free events limit</h6>		
+		  	<form id="free">
+				<input id="free" type="text" name="text" placeholder="Current limit: {{FreeLimit}}"/>
+			</form>
+
+			<h6>Payable events limit</h6>
+			<form id="payable">
+					<input id="payable" type="text" name="text" placeholder="Current limit: {{PayableLimit}}"/>
+			</form>
+
+			<a class="waves-effect waves-light btn" id="deleteUsers">Delete all users</a>
+			<a class="waves-effect waves-light btn" id="resetUsers">Reset all users event choices</a>
+			
+		</div>
+	</div>
+</template>
+
+<template name="allSections">
+	<ul class="card collapsible">
+		<li class="card-content">
+			<span class="collapsible-header card-title">Sections settings</span>
+			<div class="collapsible-body">
+				{{#each allSections}}
+					<li>
+					{{> oneSection}}
+					</li>
+				{{/each}}
+			</div>
+		</li>
+	</ul>
+</template>
+
+<template name="oneSection">
+	<h6>Set your section <strong>{{this}}</strong> google calendar id</h6>
+	<form id={{this}} class="row" style="margin-bottom: 0">
+		<input id={{this}} class="col s8" type="text" name="text" placeholder="Remember to press enter after typing in the id"/>
+		<input type="submit" class="col offset-s1 s2 waves-effect waves-light btn" id="{{this}}" value="Change id">
+	</form>
+		<a class="waves-effect waves-light btn authorize-button" id="{{this}}">
+		    Reload events
+		</a>
+
+		<a class="waves-effect waves-light btn clear-button" id="{{this}}">
+		    Clear section's events
+		</a>
+		<br /><br />
+	<!-- </form> -->
+</template>

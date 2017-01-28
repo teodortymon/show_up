@@ -1,0 +1,96 @@
+<template name="user_event">
+	<!-- <li class="collection-item"> -->
+	<tr>
+		<td>{{this.profile.name}}</td> <td>{{email}}</td><!-- {{emails[0].address}} -->
+		<td><a class="waves-effect btn-flat" id="user-event-remove" ><i class="material-icons left">not_interested</i>Remove user from event</a></td>
+		<td><a class="waves-effect btn-flat" id="user-event-paid" >{{#if hasPaid ../_id}}Paid!{{else}}Hasn't paid{{/if}}</a></td>
+	</tr>
+	<!-- </li> -->
+</template>
+
+
+<template name="user">
+	<li>
+  		<div class="collapsible-header"><i class="material-icons left">perm_identity</i>{{profile.name}}</div>
+  		<div class="collapsible-body">
+			<!-- ID: {{_id}} -->
+			<!-- <p>Google mail: {{services.google.email}}</p> -->
+			<!-- <p>Facebook mail: {{services.facebook.email}}</p> -->
+			<p>
+				Mail: {{email}}
+				<br />
+				<a id="user-remove" class="waves-effect btn"><i class="material-icons left">not_interested</i>Remove user</a>
+
+
+				<a id="user-restart" class="waves-effect btn"><i class="material-icons left">not_interested</i>Free user to change choices</a>
+
+				<!-- <a id="user-admin" class="waves-effect btn"><i class="material-icons left">grade</i>Give admin privileges</a> -->
+
+				<br /><br />
+				
+				<div style="margin: 0 2em;">
+					<h5>Assigned events:</h5>
+					<ul class="collection">
+						{{#each chosenEvents}}
+					    <!--     {{#if p start.dateTime }}
+					  	    	<center><h6 class="" id="{{_id}}"></h6></center>
+					  	  	{{/if}}
+ -->
+							<li class="collection-item">
+						  		{{> oneEventSimple}}
+						  	</li>
+
+					  	{{/each}}
+				  	</ul>
+			  	</div>
+			</p>
+			<!-- 	</div>
+			</div> -->
+		</div>
+  	</li>
+</template>
+
+<template name="oneEventSimple">
+	<i class="material-icons left">today</i>{{#if summary }}{{summary}}<span class="right">{{hourFormat start.dateTime}} - {{hourFormat end.dateTime}} {{dayFormat start.dateTime}}</span>{{else}}International event{{/if}}
+</template>
+
+<template name="userAdmin">
+	<li>
+  		<div class="collapsible-header"><i class="material-icons left">today</i></div>
+  		<div class="collapsible-body">
+		
+
+			<p></p>
+			<a id="user-remove" class="waves-effect btn"><i class="material-icons left">not_interested</i>Remove user</a>
+
+			<br />
+
+			<a id="user-admin" class="waves-effect btn"><i class="material-icons left">grade</i>Give admin privileges</a>
+
+			<br />
+		</div>
+  	</li>
+</template>
+
+<template name="usersList">
+	<ul class="card collapsible">
+		<li class="card-content">
+			<span class="collapsible-header card-title">Registered Users</span>
+			<div class="collapsible-body">
+				<ul class="collapsible">
+					{{#each users}}
+						{{> user}}
+					{{/each}}
+				</ul>
+
+				<center>
+
+					<button type="submit" class="btn btn-flat events-prev waves-effect waves-light">Previous<i class="material-icons left">chevron_left</i></button>
+
+					<button type="submit" class="btn btn-flat events-next waves-effect waves-light">Next<i class="material-icons right">chevron_right</i></button>
+				</center>
+				<br />
+			</div>
+		</li>
+	</ul>
+</template>

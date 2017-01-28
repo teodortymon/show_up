@@ -1,0 +1,97 @@
+<template name="myLayout">
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/swiper.min.css">
+  <script src="https://apis.google.com/js/client.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.jquery.min.js"></script>
+  
+  <title class='center-align'>SHOW UP</title>
+</head>
+  <!-- <div class="nav">
+    {{> Template.dynamic template=nav}}
+  </div> -->
+
+<!--   <div class="content"> -->
+  <body>
+  
+
+  <nav>
+    <div class="nav-wrapper z-depth-1" style="background-color: white">
+         <a href="#" class="brand-logo center" style="color: #444;" onclick="window.location.reload(true);">SHOW UP</a>
+         <div id="nav-mobile" class="right" style="color: #444; margin-right: 2em;">
+            {{#if currentUser}}
+              Welcome {{currentUser.profile.name}}! &nbsp; &nbsp;{{> atNavButton}}
+            {{/if}}
+          </div>
+         <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a href="sass.html">Sass</a></li>
+           <li><a href="badges.html">Compon  ents</a></li>
+           <li><a href="collapsible.html">JavaScript</a></li>
+         </ul> -->
+    </div>
+  </nav>
+
+  {{> Template.dynamic template=main}}
+  <!-- </div> -->
+
+  <!-- <footer>
+    {{> Template.dynamic template=footer}}
+  </footer> -->
+
+  </body>
+</template>
+
+<template name="appRenderedBody">
+
+  {{#if Template.subscriptionsReady}}
+    <!-- {{#if currentUser}} -->
+      <div class="container">
+      {{#if hasUserDecided}}
+        <div class="center-align flow-text">
+          <p>{{displayIntroText}}</p>
+        </div>
+
+        {{#if isInRole 'admin'}}
+          {{> adminSettings}}
+          {{>allSections}}
+          <!-- {{> eventsDownload}} -->
+        {{/if}}
+
+          
+        {{> days}}
+
+        <!-- {{initCollapsible}} -->
+
+      {{/if}}
+      </div>
+      <br /><br /><br /><br />
+      <footer>
+        <div class="row">
+          <p class="col s2 offset-s10 center small" style="color: #AAAAAA;">&copy; 2015-2016, T.W.</p>
+        </div>
+      </footer>
+    <!-- {{/if }} -->
+  {{else}}
+    {{>spinner}}
+  {{/if}}
+  
+</template>
+
+<template name="appBody">
+  
+    {{#if Template.subscriptionsReady}}
+      {{>appRenderedBody}}
+    {{else}}
+      {{>spinner}}
+    {{/if}}
+
+</template>
+ 
