@@ -62,6 +62,7 @@ Template.days.onRendered(function(){
     var mySwiper = new Swiper ('.swiper-container', {
         // Optional parameters
         direction: 'horizontal',
+        // direction: 'vertical',
         slidesPerView: 1,
         spaceBetween: 50,
         loop: true,

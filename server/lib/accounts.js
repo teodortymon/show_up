@@ -5,8 +5,8 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.update(
     { service: "facebook" },
     { $set: {
-        appId: "539729696185341",
-        secret: "d56eba6a8725480d277f0dacb7727eec"
+        appId: "171609056658846",
+        secret: "f5d71275ccc7bdc63e65187743407864"
       }
     },
     { upsert: true }
@@ -30,8 +30,8 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.update(
     { service: "google" },
     { $set: {
-        clientId: "766997000709-cogelu7ci0k8436qsjsp63jb7arbs8jo.apps.googleusercontent.com",
-        secret: "VfExDvW-84RlpDtbYSi1cZzD"
+        clientId: "766997000709-qt7pvl845klc6o1v085mlgf6kkf1ks54.apps.googleusercontent.com",
+        secret: "IZgylFZH3DQ0tFZQWGmlvBSx"
       }
     },
     { upsert: true }

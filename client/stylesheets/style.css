@@ -5,9 +5,9 @@
     background-color: #ddd !important;
 }
 
-.col.s12.m8.push-m2.push-l4.l4.z-depth-1{
+/*.col.s12.m8.push-m2.push-l4.l4.z-depth-1{
 	margin-top: 4em;
-}
+}*/
 
 .at-signup-link{
 	visibility:hidden;
@@ -17,7 +17,7 @@
 	/*border: 1px rgba(0, 255, 219, 0.65) outset;*/
 }
 
-.swiper-container {
+/*.swiper-container {
     width: 1000px;
     height: 10000px;
-}      
+}      */
