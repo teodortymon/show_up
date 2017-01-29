@@ -5,7 +5,7 @@ B = '';
 
 Template.allSections.helpers({
 	allSections: function () {
-		sections = ['international', 'a', 'b', 'cl', 'd', 'dr', 'e', 'f', 'i', 'ish', 'ist', 'in', 'k', 'm', 'media', 'mit', 's', 't', 'w'];
+		sections = ['international'];
 		return sections;
 	}
 });
@@ -37,7 +37,7 @@ Template.oneSection.events({
 		console.log(c);
 
 		var d = new Date();
-		d.setDate(d.getDate() - 220 ); //UWAGA KURWA
+		d.setDate(d.getDate() - 10); //UWAGA KURWA
 
 
 		var request = gapi.client.calendar.events.list({
@@ -84,18 +84,6 @@ Template.adminSettings.events({
 	Meteor.call("changeVariable",event.target.id, event.target.text.value);
     event.target.text.value = "";
 	},
-
-  "submit #payable": function (event) {
-    event.preventDefault();
-    Meteor.call("changeVariable",event.target.id, event.target.text.value);
-    event.target.text.value = "";
-  },
-
-  "submit #free": function (event) {
-    event.preventDefault();
-    Meteor.call("changeVariable",event.target.id, event.target.text.value);
-    event.target.text.value = "";
-  },
 
   "submit #calendar": function (event) {
     event.preventDefault();
