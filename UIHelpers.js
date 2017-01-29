@@ -21,6 +21,9 @@ UI.registerHelper("random_dist", function() {
   return randNumber;
 });
 
+UI.registerHelper("map_place", function(a) {
+
+});
 
 UI.registerHelper("FreeLimit", function() {
   return RegisterLimit.find().fetch()[0].free;

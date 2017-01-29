@@ -52,7 +52,19 @@ Template.days.events({
   }
 });
 
+
 Template.oneEvent.events({
+  
+  "click .show-up": function(event) {
+    Materialize.toast("We'll process your payment soon!" , 2000);
+    console.log(this);
+  },
+
+  "click .show-up-share": function(event) {
+    Materialize.toast("Sharing with your friends!" , 2000);
+    console.log(this);
+  },
+
   "click #register": function(event) {
     console.log(this);
     q=event;
