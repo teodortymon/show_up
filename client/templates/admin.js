@@ -1,4 +1,4 @@
-CLIENT_ID = '766997000709-qt7pvl845klc6o1v085mlgf6kkf1ks54.apps.googleusercontent.com';
+CLIENT_ID = '766997000709-ttnlcg6vqcn0hea8m73ott16ic9jp4f6.apps.googleusercontent.com';
 SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 Session.set("previousDay",0);
 B = '';
