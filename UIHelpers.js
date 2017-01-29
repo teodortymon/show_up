@@ -22,7 +22,8 @@ UI.registerHelper("random_dist", function() {
 });
 
 UI.registerHelper("map_place", function(a) {
-
+  var maps_place = a.replace(/\s+/g, '-').toLowerCase();
+  return maps_place;
 });
 
 UI.registerHelper("FreeLimit", function() {
