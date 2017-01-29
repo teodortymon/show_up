@@ -30,8 +30,8 @@ Meteor.startup(function() {
   ServiceConfiguration.configurations.update(
     { service: "google" },
     { $set: {
-        clientId: "766997000709-qt7pvl845klc6o1v085mlgf6kkf1ks54.apps.googleusercontent.com",
-        secret: "IZgylFZH3DQ0tFZQWGmlvBSx"
+        clientId: "766997000709-ttnlcg6vqcn0hea8m73ott16ic9jp4f6.apps.googleusercontent.com ",
+        secret: "-XLO6MxlXDQ-ncJ7WJd-cd81"
       }
     },
     { upsert: true }
