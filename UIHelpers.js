@@ -1,9 +1,9 @@
 var arr = _.range(1, 10);
-var arr_dist = _.range(1, 500);
+var arr_dist = _.range(50, 500);
 var muppet = 0;
 
 UI.registerHelper("random", function() {
-  
+  if(muppet>10)muppet=0;
   var rand = Math.floor((Math.random()*arr.length));
   var randNumber = arr[rand];
   arr.splice(rand,1);

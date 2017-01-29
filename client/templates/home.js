@@ -65,7 +65,7 @@ Template.days.onRendered(function(){
         // direction: 'vertical',
         slidesPerView: 1,
         spaceBetween: 50,
-        loop: true,
+        loop: false,
         centeredSlides: true,
         
         // If we need pagination
