@@ -1,11 +1,14 @@
 var arr = _.range(1, 10);
+var muppet = 0;
 
 UI.registerHelper("random", function() {
   
   var rand = Math.floor((Math.random()*arr.length));
   var randNumber = arr[rand];
   arr.splice(rand,1);
-  return randNumber+".jpg";
+  // return randNumber+".jpg";
+  muppet = muppet +1;
+  return "m"+muppet+".jpg";
 });
 
 
