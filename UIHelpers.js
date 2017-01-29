@@ -1,4 +1,5 @@
 var arr = _.range(1, 10);
+var arr_dist = _.range(1, 500);
 var muppet = 0;
 
 UI.registerHelper("random", function() {
@@ -8,7 +9,16 @@ UI.registerHelper("random", function() {
   arr.splice(rand,1);
   // return randNumber+".jpg";
   muppet = muppet +1;
-  return "m"+muppet+".jpg";
+  return "m/m"+muppet+".jpg";
+});
+
+UI.registerHelper("random_dist", function() {
+  
+  var rand = Math.floor((Math.random()*arr_dist.length));
+  var randNumber = arr_dist[rand];
+  arr.splice(rand,1);
+  // return randNumber+".jpg";
+  return randNumber;
 });
 
 
